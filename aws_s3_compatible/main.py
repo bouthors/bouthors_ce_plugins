@@ -176,6 +176,11 @@ class AWSS3CompatiblePlugin(PluginBase):
                 success=False, message="Invalid Max File Size provided."
             )
 
+        aws_validator.validate_credentials(
+            configuration["aws_public_key"].strip(),
+            configuration["aws_private_key"].strip(),
+            configuration["endpoint_url"].strip(),
+        )
         try:
             aws_validator.validate_credentials(
                 configuration["aws_public_key"].strip(),
