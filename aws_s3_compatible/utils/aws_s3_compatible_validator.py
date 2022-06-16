@@ -35,8 +35,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import boto3
 from botocore.config import Config
-from .aws_s3_compatible_constants import REGIONS
-
 
 class AWSS3CompatibleValidator(object):
     """AWS S3 Compatible validator class."""
@@ -80,28 +78,6 @@ class AWSS3CompatibleValidator(object):
             try:
                 max_duration = int(max_duration)
                 if max_duration > 0:
-                    return True
-                return False
-            except ValueError:
-                return False
-        else:
-            return False
-
-    def validate_region_name(self, region_name):
-        """Validate region name.
-
-        Args:
-            region_name: the region name to be validated
-
-        Returns:
-            Whether the provided value is valid or not. True in case of valid value, False otherwise
-        """
-	return True
-        if region_name:
-            try:
-                if region_name == "None":
-                    return True
-                if region_name in REGIONS:
                     return True
                 return False
             except ValueError:

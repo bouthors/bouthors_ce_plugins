@@ -97,18 +97,9 @@ class AWSS3CompatibleClient:
         try:
             if not self.is_bucket_exists(self.configuration["bucket_name"]):
                 s3_client = self.get_aws_client()
-                if self.configuration["region_name"] == "None":
-                    bucket = s3_client.create_bucket(
-                        Bucket=self.configuration["bucket_name"],
-                    )
-                else:
-                    location = {
-                        "LocationConstraint": self.configuration["region_name"]
-                    }
-                    bucket = s3_client.create_bucket(
-                        Bucket=self.configuration["bucket_name"],
-                        CreateBucketConfiguration=location,
-                    )
+                bucket = s3_client.create_bucket(
+                    Bucket=self.configuration["bucket_name"],
+                )
                 return bucket
         except Exception as e:
             raise e
