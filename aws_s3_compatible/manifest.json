@@ -1,7 +1,7 @@
 {
     "name": "AWS S3 Compatible",
     "id": "aws_s3_compatible",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "mapping": "AWS S3 Compatible Default Mappings",
     "netskope": false,
     "types": [
