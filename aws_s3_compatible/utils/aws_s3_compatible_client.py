@@ -87,7 +87,7 @@ class AWSS3CompatibleClient:
             s3_client = self.get_aws_client()
             #disable listing
             return True
-            buckets = s3_client.list_buckets()
+            #buckets = s3_client.list_buckets()
             for bucket in buckets["Buckets"]:
                 if bucket_name == bucket["Name"]:
                     return True
