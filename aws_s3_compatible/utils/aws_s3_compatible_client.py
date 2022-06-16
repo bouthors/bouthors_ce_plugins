@@ -51,55 +51,32 @@ class AWSS3CompatibleClient:
     def get_aws_resource(self):
         """To get aws resource."""
         try:
-            if self.configuration["region_name"] == "None":
-                s3_resource = boto3.resource(
-                    "s3",
-                    aws_access_key_id=self.configuration["aws_public_key"],
-                    aws_secret_access_key=self.configuration[
-                        "aws_private_key"
-                    ],
-		    endpoint_url=self.configuration["endpoint_url"],
-                    config=Config(proxies=self.proxy),
-                )
-                return s3_resource
-            else:
-                s3_resource = boto3.resource(
-                    "s3",
-                    aws_access_key_id=self.configuration["aws_public_key"],
-                    aws_secret_access_key=self.configuration[
-                        "aws_private_key"
-                    ],
-                    region_name=self.configuration["region_name"],
-                    config=Config(proxies=self.proxy),
-                )
-                return s3_resource
+            s3_resource = boto3.resource(
+                "s3",
+                aws_access_key_id=self.configuration["aws_public_key"],
+                aws_secret_access_key=self.configuration[
+                    "aws_private_key"
+                 ],
+		endpoint_url=self.configuration["endpoint_url"],
+                config=Config(proxies=self.proxy),
+            )
+            return s3_resource
         except Exception:
             raise
 
     def get_aws_client(self):
         """To get aws client."""
         try:
-            if self.configuration["region_name"] == "None":
-                s3_client = boto3.client(
-                    "s3",
-                    aws_access_key_id=self.configuration["aws_public_key"],
-                    aws_secret_access_key=self.configuration[
-                        "aws_private_key"
-                    ],
-                    config=Config(proxies=self.proxy),
-                )
-                return s3_client
-            else:
-                s3_client = boto3.client(
-                    "s3",
-                    aws_access_key_id=self.configuration["aws_public_key"],
-                    aws_secret_access_key=self.configuration[
-                        "aws_private_key"
-                    ],
-                    region_name=self.configuration["region_name"],
-                    config=Config(proxies=self.proxy),
-                )
-                return s3_client
+            s3_client = boto3.client(
+                "s3",
+                aws_access_key_id=self.configuration["aws_public_key"],
+                aws_secret_access_key=self.configuration[
+                    "aws_private_key"
+                ],
+		endpoint_url=self.configuration["endpoint_url"],
+                config=Config(proxies=self.proxy),
+            )
+            return s3_client
         except Exception:
             raise
 

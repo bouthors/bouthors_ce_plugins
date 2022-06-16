@@ -123,6 +123,7 @@ class AWSS3CompatibleValidator(object):
                 "s3",
                 aws_access_key_id=aws_public_key,
                 aws_secret_access_key=aws_private_key,
+		endpoint_url=endpoint_url,
                 config=Config(proxies=self.proxy),
             )
             # Print out bucket names
