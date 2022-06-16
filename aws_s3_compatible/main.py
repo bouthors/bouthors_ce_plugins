@@ -179,6 +179,7 @@ class AWSS3CompatiblePlugin(PluginBase):
         aws_validator.validate_credentials(
             configuration["aws_public_key"].strip(),
             configuration["aws_private_key"].strip(),
+            configuration["endpoint_url"].strip(),
         )
         return ValidationResult(success=True, message="Validation successful.")
         try:
