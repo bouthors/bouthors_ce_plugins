@@ -82,6 +82,7 @@ class AWSS3CompatibleClient:
 
     def is_bucket_exists(self, bucket_name):
         """To check if a bucket exists or not."""
+        s3_client = self.get_aws_client()
         try:
             s3_client = self.get_aws_client()
             #disable listing
