@@ -104,6 +104,7 @@ class AWSS3CompatibleValidator(object):
 		endpoint_url=endpoint_url,
                 config=Config(proxies=self.proxy),
             )
+            return True
             # Print out bucket names
             for _ in s3_resource.buckets.all():
                 break
