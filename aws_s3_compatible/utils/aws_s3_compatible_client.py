@@ -58,6 +58,7 @@ class AWSS3CompatibleClient:
                     aws_secret_access_key=self.configuration[
                         "aws_private_key"
                     ],
+		    endpoint_url=self.configuration["endpoint_url"],
                     config=Config(proxies=self.proxy),
                 )
                 return s3_resource
