@@ -3,7 +3,6 @@
     "id": "aws_s3_compatible",
     "version": "0.0.1",
     "mapping": "AWS S3 Compatible Default Mappings",
-    "patch_supported": false,
     "netskope": false,
     "types": [
         "webtx"
