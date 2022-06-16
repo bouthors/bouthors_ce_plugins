@@ -96,8 +96,10 @@ class AWSS3CompatibleValidator(object):
         Returns:
             Whether the provided value is valid or not. True in case of valid value, False otherwise
         """
-	# Disable validator
-	return True
+
+        # Disable validator
+        return True
+
         try:
             s3_resource = boto3.resource(
                 "s3",
