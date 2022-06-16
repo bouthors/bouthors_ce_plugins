@@ -201,7 +201,7 @@ class AWSS3CompatiblePlugin(PluginBase):
 
         try:
             aws_client = AWSS3CompatibleClient(configuration, self.logger, self.proxy)
-            aws_client.get_bucket()
+            #aws_client.get_bucket()
         except Exception as err:
             self.logger.error(
                 f"AWS S3 Plugin: Validation error occurred. Error: {err}"
