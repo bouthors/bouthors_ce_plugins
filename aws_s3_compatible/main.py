@@ -194,7 +194,6 @@ class AWSS3CompatiblePlugin(PluginBase):
                 "Key (Private Key) found in the configuration parameters.",
             )
 
-        return ValidationResult(success=True, message="Validation successful.")
         try:
             aws_client = AWSS3CompatibleClient(configuration, self.logger, self.proxy)
             aws_client.get_bucket()

@@ -84,6 +84,8 @@ class AWSS3CompatibleClient:
         """To check if a bucket exists or not."""
         try:
             s3_client = self.get_aws_client()
+            #disable listing
+            return True
             buckets = s3_client.list_buckets()
             for bucket in buckets["Buckets"]:
                 if bucket_name == bucket["Name"]:
