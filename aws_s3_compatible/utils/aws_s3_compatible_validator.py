@@ -96,6 +96,7 @@ class AWSS3CompatibleValidator(object):
         Returns:
             Whether the provided value is valid or not. True in case of valid value, False otherwise
         """
+	return True
         if region_name:
             try:
                 if region_name == "None":
@@ -108,12 +109,13 @@ class AWSS3CompatibleValidator(object):
         else:
             return False
 
-    def validate_credentials(self, aws_public_key, aws_private_key):
+    def validate_credentials(self, aws_public_key, aws_private_key, endpoint_url):
         """Validate credentials.
 
         Args:
             aws_public_key: the aws public key to establish connection with aws s3.
             aws_private_key: the aws private key to establish connection with aws s3.
+	    endpoint_url: the s3 compatible endpoint url.
 
         Returns:
             Whether the provided value is valid or not. True in case of valid value, False otherwise

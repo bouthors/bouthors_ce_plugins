@@ -123,22 +123,6 @@ class AWSS3CompatiblePlugin(PluginBase):
             )
 
         if (
-            "region_name" not in configuration
-            or type(configuration["region_name"]) != str
-            or not aws_validator.validate_region_name(
-                configuration["region_name"]
-            )
-        ):
-            self.logger.error(
-                "AWS S3 Plugin: Validation error occurred. Error: "
-                "Invalid Region Name found in the configuration parameters."
-            )
-            return ValidationResult(
-                success=False,
-                message="Invalid Region Name provided.",
-            )
-
-        if (
             "bucket_name" not in configuration
             or type(configuration["bucket_name"]) != str
             or not configuration["bucket_name"].strip()
@@ -196,6 +180,7 @@ class AWSS3CompatiblePlugin(PluginBase):
             aws_validator.validate_credentials(
                 configuration["aws_public_key"].strip(),
                 configuration["aws_private_key"].strip(),
+                configuration["endpoint_url"].strip(),
             )
         except Exception:
             self.logger.error(
